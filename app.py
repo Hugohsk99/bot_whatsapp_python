@@ -66,40 +66,25 @@ def sms():
 
     elif 'Boa noite' in msgEnviada:
 
-        msg.body('Boa noite!..\nHow was your day today?')
-
-    elif 'good night' in msgEnviada:
-        msg.body('Good Night..\nSee you tomorrow..')
+        msg.body('Boa noite!..\nComo foi seu dia?')
 
     elif 'fine' in msgEnviada:
         msg.body('Nice to hear that..\nWhat can I do for you master?')
 
-    elif 'who made you' in msgEnviada:
-        msg.body('Samwit Adhikary made me.❤️❤️')
+    elif 'Quem te vez' in msgEnviada:
+        msg.body('Hugo Santana')
 
-    elif "who are you" in msgEnviada:
-        msg.body('I am called Whatsapp Bot made by Samwit Adhikary.❤️❤️')
-
-    elif 'who developed you' in msgEnviada:
-        msg.body('I obey whatsapp messenger.')
-
-    elif 'how are you' in msgEnviada:
-        msg.body('I am fine..\nWhat about you??')
-
-    elif '#about' in msgEnviada:
-        msg.body("Hi! I am Whatsapp Bot made By Samwit Adhikary. Did you know that you can find out the tempo, a filme rating and much more on whatsapp with just a few palavras!\nTry one of the following and I'll look it up for you!\n\n#tempo PLACE: Check out the tempo at any place.\n\n#wiki nome: pesquisar Wikipedia for anything you want.\n\n#citacao: We'll send you awesome citacao whenever you want it.\n\n#filme nome: Checkout the IMDB Rating about any filme.\n\n#book nome: Get details of any book you're interested in.\n\n#significado palavra: Don't know the significado of a palavra someone just messaged you? Try out my built in dictionary\n\n#sinonimo palavra: Don't know the sinonimos of any palavra. Try my built in sinonimo finder.\n\n#coronastats: To get current status of Coronavirus in Brasil\n\n#fact: Awesome facts, served streaming hot, whenever you want it!\n\n#news: Get the top 5 breaking news.\n\n#joke: Get jokes.")
-
-    elif '#joke' in msgEnviada:
-        url = 'https://official-joke-api.appspot.com/jokes/general/random'
+    elif '#piada' in msgEnviada:
+        url = ''
         r = requests.get(url)
         rj = r.json()
         try:
-            for joke in rj:
-                setup = joke['setup']
-                punch = joke['punchline']
+            for piada in rj:
+                setup = piada['setup']
+                punch = piada['punchline']
                 msg.body(f'{setup}\n{punch}')
         except:
-            msg.body('Sorry.. No Joke Found!!')
+            msg.body('Desculpe.. Não encontrei nenhuma piada!!')
 
     elif '#news' in msgEnviada:
         #! Função de noticias
@@ -113,7 +98,7 @@ def sms():
                 link = news['url']
                 msg.body(f"\ntitulo: {titulo}\n{link}\n")
         except:
-            msg.body('Sorry.. No News Found!!')
+            msg.body('Desculpe.. Não encontrei notícias!!')
 
     elif '#fact' in msgEnviada:
         #!Fatos interessantes
